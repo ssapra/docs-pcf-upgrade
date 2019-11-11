@@ -52,7 +52,6 @@ For more information, see [Deprecation of the windows2016 Stack](https://docs.pi
 
 If you are running PAS for Windows v2.4.4 or later on <%= vars.product_name %> v2.6, you can also restage your apps before upgrading to PAS for Windows v2.6. For more information about upgrading to PAS for Windows v2.6, see [Upgrade to PAS for Windows v2.6](#upgrade-pasw).
 
-
 ## <a id="tiles-addons"></a> Update Tiles and Add-Ons
 
 The following section describes changes you must make to your product tiles and add-ons before upgrading <%= vars.platform_name %>.
@@ -66,6 +65,21 @@ If you are running PAS for Windows v2.4.4 or later on <%= vars.product_name %> v
 If you are running PAS for Windows v2.6 using Windows stemcell v2019.3, you must upgrade your stemcell to v2019.4 or later before you upgrade to Ops Manager v2.7.
 
 To upgrade your stemcell, see [Stemcells for PCF (Windows)](https://network.pivotal.io/products/stemcells-windows-server) on Pivotal Network.
+
+### <a id="update-SCS-2"></a> Upgrade to SCS v2.1 or Remove SCS v2.0
+
+Pivotal Spring Cloud Services (SCS) v2.0.x is not compatible with Pivotal Platform v2.7. You cannot upgrade to Ops Manager v2.7 or PAS v2.7 without either removing SCS v2.0.x or upgrading from SCS v2.0.x to SCS v2.1.x first.
+
+If you need to use the <code>p-circuit-breaker-dashboard</code> service i
+n SCS v2.0.x, 
+you must upgrade SCS v2.0.x to SCS v2.1.x before you upgrade to Pivotal Platform v2.7. 
+
+If you are running SCS v3.0.x or SCS v3.1.x alongside SCS v2.0.x and do not require `p-circuit-breaker-dashboard` 
+functionality, you can remove SCS v2.0.x entirely after migrating completely to SCS v3.1.x. Follow the procedure 
+in [How to Upgrade to SCS v3.1](https://docs.pivotal.io/spring-cloud-services/3-1/product-upgrades.html#upgrade-to-3-1). 
+
+After you successfully remove SCS v2.0.x or upgrade to SCS v2.1.x, 
+you can proceed with the Pivotal Platform v2.7 upgrade. 
 
 ### <a id="compatibility"></a> Review Service Tile Compatibility
 
