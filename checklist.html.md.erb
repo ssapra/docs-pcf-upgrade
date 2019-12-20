@@ -114,19 +114,22 @@ If the scheduling is set to **Never clean up Diego Cell disk space** or **Routin
 
 #### <a id="disable-hostname-verification"></a> Disable Hostname Verification for External CredHub Databases on GCP and Azure
 
-This pre-upgrade step applies only to PAS v2.7 deployments where all of the following conditions are met:
+This pre-upgrade step applies only to existing PAS v2.7 deployments where all of the following conditions are met:
 
-* In the **Databases** pane, PAS is configured to use an external GCP or Azure database.
-* In the **Resource Config** pane, the number of CredHub instances in PAS is set to 0.
-* You want CredHub to use the same external GCP or Azure database configured in the **Databases** pane.
+* In the **Databases** pane, you configured your existing PAS deployment to use an external GCP or Azure database.
+* In the **Resource Config** pane, you set the number of CredHub instances to 0.
+* In PAS v2.8, you want CredHub to use the same external GCP or Azure database configured in the **Databases** pane.
 
-If you meet these conditions, you must select **Disable hostname verification** under **Other external database** in the **CredHub** pane of PAS v2.7 before you upgrade to PAS v2.8.
+If you meet these conditions, you must configure the following in the newly imported PAS v2.8 tile:
 
-For more information on CredHub database configuration in PAS v2.7, see [Configure CredHub](https://docs.pivotal.io/platform/application-service/2-7/operating/configure-pas.html#credhub).
+1. In the **CredHub** pane, select **Disable hostname verification** under **Other external database**.
+1. In the **Resource Config** pane, increase the number of CredHub instances to one or more instances.
 
-Failure to disable hostname verification can cause the upgrade to fail for deployments that use external databases on GCP or Azure.
+Make these configuration changes before you apply changes for the upgrade. Failure to disable hostname verification can cause the upgrade to fail for deployments that use external databases on GCP or Azure.
+ 
+For more information on CredHub database configuration in PAS v2.8, see [Configure CredHub](https://docs.pivotal.io/platform/application-service/2-8/operating/configure-pas.html#credhub).
 
-#### <a id="minimum-credhub-instances"></a> Configure CredHub Instances
+#### <a id="minimum-credhub-instances"></a> Configure CredHub Instances and Hostname Verification
 
 In <%= vars.platform_name %> <%= vars.v_major_version %> and later, at least one CredHub instance is required to deploy PAS. In PAS v2.8, the default number of CredHub instances is increased from `0` to `2`.
 
