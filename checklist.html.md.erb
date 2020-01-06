@@ -100,6 +100,20 @@ Check the required machine specifications for Ops Manager <%= vars.v_major_versi
 
 With each release of a new <%= vars.platform_name %> version, PAS may require specific updates before upgrading to the new version. See the following sections for what action to take before upgrading to <%= vars.platform_name %> <%= vars.v_major_version %>:
 
+#### <a id="enable-syslog-agents"></a> Enable Syslog Agents
+
+Syslog Adapters are not supported in PAS v2.8. 
+
+Before you upgrade to PAS v2.8, verify 
+that Syslog Agents are enabled in your PAS deployment. 
+
+If you configured PAS v2.7.7 or later to disable Syslog Agents 
+through the UI or by setting `properties.syslog_agent_enabled` 
+to `false`, then you must enable Syslog Agents prior to the upgrade. 
+
+If you do not enable Syslog Agents prior to upgrade, 
+the upgrade to PAS v2.8 fails in order to prevent potential log loss.
+
 #### <a id="disable-unused-errands"></a> (Optional) Disable Unused Errands
 
 To save upgrade time, you can disable unused PAS post-deploy errands. See the [Post-Deploy Errands](https://docs.pivotal.io/tiledev/<%= product_info['local_product_version'].to_s.sub('.','-') %>/tile-errands.html#post-deploy) section of the Errands topic for details. Only disable these errands if your environment does not need them.
