@@ -136,6 +136,27 @@ Check the required machine specifications for Ops Manager v2.7. These specificat
 
 With each release of a new <%= vars.platform_name %> version, PAS may require specific updates before upgrading to the new version. See the following sections for what action to take before upgrading to <%= vars.platform_name %> <%= vars.v_major_version %>:
 
+#### <a id="syslog-agents"></a> Reduce Log Loss or Log Duplication When Deploying Syslog Agents on PAS v2.7.7
+
+Syslog Agents are optional in PAS v2.6.x and required in PAS v2.7.0 through v2.7.6. In PAS v2.7.7, you can optionally disable Syslog Agents.
+
+The BOSH process to enable Syslog Agents on PAS results in a period of either log loss or log duplication. For more information, see [Duplicate or Missing Logs](#duplicate-logs).
+
+If you enabled Syslog Agents on v2.6.x and want to continue to use Syslog Agents on v2.7.7, complete the following upgrade procedure to limit this period of log loss or log duplication.
+
+To enable Syslog Agents on upgrade to PAS v2.7.7:
+
+1. On your PAS v2.6.x deployment, go to the PAS **System Logging** pane. Clear the **Enable agent-based syslog egress for app logs** checkbox to disable Syslog Agents. 
+
+1. Deploy PAS v2.7.7.  
+
+1. In the PAS **System Logging** pane, select **Enable agent-based syslog egress for app logs** to enable Syslog Agents. 
+
+1. Re-deploy PAS v2.7.7 to enable Syslog Agents.
+	<p class="note"><b>Note:</b> There is a short period of log loss or log duplication while BOSH enables the Syslog Agents and turns off the Syslog Adapter VMs.</p>
+
+1. (Optional) Scale down the Syslog Adapter VMs. 
+
 #### <a id="disable-unused-errands"></a> (Optional) Disable Unused Errands
 
 To save upgrade time, you can disable unused PAS post-deploy errands. See the [Post-Deploy Errands](https://docs.pivotal.io/tiledev/2-7/tile-errands.html#post-deploy) section of the Errands topic for details. Only disable these errands if your environment does not need them.
