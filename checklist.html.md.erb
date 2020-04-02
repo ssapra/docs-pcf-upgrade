@@ -153,7 +153,7 @@ If the scheduling is set to **Never clean up Diego Cell disk space** or **Routin
 
 Do not change your Syslog Agent configuration when you stage <%= vars.app_runtime_abbr %> v2.7.7 for the first time. For example, if Syslog Agents are enabled on your current version of <%= vars.app_runtime_abbr %>, ensure that Syslog Agents are enabled when you stage <%= vars.app_runtime_abbr %> v2.7.7 for the first time.
 
-If you change your Syslog Agent configuration after staging and before the first deploy of <%= vars.app_runtime_abbr %> v2.7.7, there is a significant period of log loss or log duplication while BOSH enables or disables Syslog Agents. For more information about this log loss or duplication, see [Duplicate or Missing Logs](../release-notes/runtime-rn.html#duplicate-logs) in _<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> Release Notes_.
+If you change your Syslog Agent configuration after staging and before the first deploy of <%= vars.app_runtime_abbr %> v2.7.7, there is a significant period of log loss or log duplication while BOSH enables or disables Syslog Agents. For more information about this log loss or duplication, see [Duplicate or Missing Logs](../../release-notes/runtime-rn.html#duplicate-logs) in _<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> Release Notes_.
 
 You can edit the Syslog Agent configuration on <%= vars.app_runtime_abbr %> v2.7.7 after the first deploy. 
 
