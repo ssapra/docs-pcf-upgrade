@@ -149,16 +149,13 @@ In the **App Containers** pane of the <%= vars.app_runtime_abbr %> tile, if **Do
 
 If the scheduling is set to **Never clean up Diego Cell disk space** or **Routinely clean up Diego Cell disk space**, or the reserved disk space value is set to the default of `10240`, no action is necessary. All thresholds will migrate to a sensible value when you upgrade <%= vars.app_runtime_abbr %>. For more information, see [Options for Disk Cleanup](../opsguide/config-cell-cleanup.html).
 
-#### <a id="syslog-agents"></a> Do Not Edit Syslog Agent Configuration When Upgrading from <%= vars.app_runtime_abbr %> v2.7.6 or Earlier
+#### <a id="syslog-agents"></a> Do Not Edit Syslog Agent Configuration When Upgrading to <%= vars.app_runtime_abbr %> v2.7.7 or Later
 
 If you are upgrading from <%= vars.app_runtime_abbr %> v2.7.6 or earlier, do not change your Syslog Agent configuration when you stage <%= vars.app_runtime_abbr %> v2.7.7 or later for the first time. For example, if Syslog Agents are enabled on your current version of <%= vars.app_runtime_abbr %>, ensure that Syslog Agents are enabled when you stage <%= vars.app_runtime_abbr %> v2.7.7 for the first time.
 
 If you change your Syslog Agent configuration after staging and before the first deploy of <%= vars.app_runtime_abbr %> v2.7.7 or later, there is a significant period of log loss or log duplication while BOSH enables or disables Syslog Agents. For more information about this log loss or duplication, see [Duplicate or Missing Logs](https://docs.pivotal.io/platform/2-7/release-notes/runtime-rn.html#duplicate-logs) in _<%= vars.app_runtime_full %> v2.7 Release Notes_.
 
-You can edit the Syslog Agent configuration in <%= vars.app_runtime_abbr %> v2.7.7
-or later after the first deploy. To edit your Syslog Agent configuration, see
-[Configure System Logging](https://docs.pivotal.io/platform/application-service/2-7/operating/configure-pas.html#sys-logging)
-in _Configuring <%= vars.app_runtime_abbr %>_.
+You can edit the Syslog Agent configuration in <%= vars.app_runtime_abbr %> v2.7.7 or later after the first deploy. To edit your Syslog Agent configuration, see [Configure System Logging](https://docs.pivotal.io/platform/application-service/2-7/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 ### <a id="stemcell-compat"></a> Check OS Compatibility of BOSH-Managed Add-Ons and Tiles
 
